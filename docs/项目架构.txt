@@ -1,0 +1,14 @@
+docs 存储文档解释说明
+modules 存储拆分出来的包级模块
+public 静态内容 如图片等内容 应根据内容大类型进行目录拆分 如image text
+src 逻辑代码
+src/apps 业务分发 一个业务新建一个目录
+src/configs 服务配置 一个配置一个文件
+src/cores 核心代码与业务脱藕 如路由中间件 错误处理中间件 视图中间件以及数据库中间件等 一个中间件一个文件
+src/utils 多个相关函数一个文件 再由utils统一导出
+main.ts 主函数 入口
+
+安装nodemon来监控node.js源代码的任何变化并自动重启服务
+MongoDB
+MySQL
+redis
