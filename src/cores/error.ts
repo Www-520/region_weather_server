@@ -9,12 +9,13 @@ import error from '../configs/error.json';
  * @param next 
  * @returns 
  */
-function businessError(err: number | Error, req: Request, res: Response, next: NextFunction): void {
-    if (err instanceof Error) {
+function businessError(err: Error, req: Request, res: Response, next: NextFunction): void {
+    const num = Number(err.message);
+    if (!num) {
         next(err);
         return;
     }
-    const { status, code, message } = error[err - 10000];
+    const { status, code, message } = error[num - 10000];
     if (status >= 500) { // 服务器错误
         // do something
     } else if (status >= 400) { // 客户端错误
